@@ -1,34 +1,12 @@
 {
-  "name": "br-mask",
-  "version": "0.0.10",
-  "description": "mascara para inputs",
-  "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
-  "scripts": {
-    "ngc": "ngc",
-    "build": "rm -rf aot dist && npm run ngc",
-    "submit": "npm run build && npm publish",
-    "submitGit": "git push --all && git push --tags && npm run build && npm publish"
+  "name": "br-packs-mask",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^17.3.0",
+    "@angular/core": "^17.3.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amarkes/br-mask"
+  "dependencies": {
+    "tslib": "^2.3.0"
   },
-  "keywords": [],
-  "author": {
-        "name": "Antonio Marques",
-        "email": "tmowna@gmail.com",
-        "url" : "https://github.com/amarkes"
-    },
-    "contributors": [
-        {
-            "name": "Daniel Pereira",
-            "email": "daniel.prr.azevedo@gmail.com",
-            "url" : "https://github.com/danielprrazevedo"
-        }
-    ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/amarkes/br-mask/issues"
-  }
+  "sideEffects": false
 }

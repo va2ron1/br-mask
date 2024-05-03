@@ -25,12 +25,12 @@ export class BrMaskModel {
 
 @Injectable()
 export class BrMaskDirective implements OnInit {
-  @Input() brmasker: BrMaskModel = new BrMaskModel();
-  @Input() formControlName: string;
+  /* TODO */
+  @Input() brmasker: any = new BrMaskModel();
+  @Input() formControlName!: string;
 
   /**
   * Event key up in directive
-  * @author Antonio Marques <tmowna@gmail.com>
   * @constant {string} value
   */
   @HostListener('keyup', ['$event'])
@@ -85,7 +85,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * The verification of form
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.verifyFormControl()</caption>
   * @returns {boolean} return a boolean value
   */
@@ -99,7 +98,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * Set Value em FormControl
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.setValueInFormControl(string)</caption>
   */
   setValueInFormControl(value: string, emitViewToModelChange?: boolean): void {
@@ -113,7 +111,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * For initial value
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.setValueInFormControl(string, model)</caption>
   * @param {string} value
   * @param {BrMaskModel} config
@@ -153,7 +150,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * For initial value percent
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.writeValuePercent(string)</caption>
   * @param {string} value
   * @returns {string} mask intial value
@@ -167,7 +163,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * For initial value person
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.writeValuePerson(string)</caption>
   * @param {string} value
   * @returns {string} mask intial value
@@ -182,7 +177,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * For initial value money
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.writeValueMoney(string, model)</caption>
   * @param {string} value
   * @param {BrMaskModel} value
@@ -195,7 +189,6 @@ export class BrMaskDirective implements OnInit {
   /**
   * Here is one of the main functions
   * responsible for identifying the type of mask
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.returnValue(string)</caption>
   * @param {string} value
   * @returns {string} mask value
@@ -258,7 +251,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * Here we have a mask for percentage
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.percentMask(string)</caption>
   * @param {string} value
   * @returns {string} string percentage
@@ -273,7 +265,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * Here we have a mask for phone in 8 digits or 9 digits
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.phoneMask(string)</caption>
   * @param {string} value
   * @returns {string} string phone
@@ -299,7 +290,6 @@ export class BrMaskDirective implements OnInit {
   }
   /**
   * Here we have a mask for phone in 8 digits or 9 digits not ddd
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.phoneMask(string)</caption>
   * @param {string} value
   * @returns {string} string phone
@@ -324,7 +314,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * Here we have a mask for peapoll ID
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.peapollMask(string)</caption>
   * @param {string} value
   * @returns {string} string ID
@@ -352,7 +341,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * Here we have a mask for money mask
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.moneyMask(string)</caption>
   * @param {string} value
   * @param {BrMaskModel} config
@@ -387,7 +375,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * Responsible for returning the empty mask
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.onInput(string)</caption>
   * @param {string} value
   * @returns {string} value
@@ -398,7 +385,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * Responsible for special characters
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.usingSpecialCharacters(string)</caption>
   * @param {string} field
   * @param {string} mask
@@ -430,7 +416,6 @@ export class BrMaskDirective implements OnInit {
 
   /**
   * Responsible formating number
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.thousand(string)</caption>
   * @param {string} value
   */
@@ -440,12 +425,13 @@ export class BrMaskDirective implements OnInit {
     const thousands = reverse.match(/\d{1,3}/g);
     if (thousands) {
       return thousands.join(`${this.brmasker.thousand || '.'}`).split('').reverse().join('');
+    } else {
+      return '';
     }
   }
 
   /**
   * Responsible for removing special characters
-  * @author Antonio Marques <tmowna@gmail.com>
   * @example <caption>this.formatField(string)</caption>
   * @param {string} field
   * @param {string} mask
