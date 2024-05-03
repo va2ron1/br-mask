@@ -10,18 +10,16 @@
 [![Build Status](https://travis-ci.org/amarkes/br-mask.svg?branch=master)](https://travis-ci.org/amarkes/br-mask)
 
 
-return custom mask in input for ionic 4
+return custom mask in input for ionic 6/7
 
 # Required
-- Node: 10.7.0
-- npm 6.4.0
-- ionic 4.1.2
-- Angular CLI: 6.1.2
+- ionic 6/7
+- Angular CLI: 16/17
 
 # install
 
 ```sh
-npm install br-mask --save -E
+npm install br-packs-mask --save -E
 ```
 
 # Usage
@@ -199,61 +197,3 @@ private createPhone(): string {
 # Characters
 
 `- . / ( ) , * + @ # $ & % :`
-
-
-
-# Build for developer
-
-### Only use if you change the component
-
-### Build
-
-```sh
-npm run build
-```
-
-### Publish
-
-```sh
-npm publish
-```
-
-# Changelog
-
-### 0.0.9
-
-- pull issues
-
-### 0.0.8
-
-- change phone mask for accept 11 digits
-
-### 0.0.7
-
-- removing the need to declare the form
-
-### 0.0.6
-
-- remove console log
-
-### 0.0.5
-
-- add prop moneyInitHasInt
-
-# Changelog
-
-### 0.0.4
-
-- add phoneNotDDD
-
-### 0.0.3
-
-- fix numberAndTousand
-
-### v0.0.2
-
-- add number thousand
-
-### v0.0.1
-
-- Inicial project
