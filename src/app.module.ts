@@ -16,6 +16,6 @@ import { BrMaskDirective } from './directives/br-mask.directive';
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
-  ]
+  ],
 })
 export class BrMaskerModule {}

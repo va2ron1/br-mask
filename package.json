@@ -1,12 +1,19 @@
 {
-  "name": "br-packs-mask",
+  "name": "br-mask",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^17.3.0",
-    "@angular/core": "^17.3.0"
+    "@angular/common": ">=17.3.0",
+    "@angular/core": ">=17.3.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "devDependencies": {
+    "@angular/forms": "^19.0.6",
+    "ng-packagr": "^19.0.1"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json"
+  }
 }

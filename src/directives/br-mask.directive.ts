@@ -20,7 +20,8 @@ export class BrMaskModel {
 }
 
 @Directive({
-  selector: '[brmasker]'
+  selector: '[brmasker]',
+  standalone: false,
 })
 
 @Injectable()
