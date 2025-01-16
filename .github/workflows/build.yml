@@ -3,8 +3,10 @@ name: Build and Commit Dist
 on:
   push:
     branches:
-      - main  # Replace with your target branch
+      - master
   pull_request:
+      branches:
+      - master
 
 jobs:
   build:
@@ -35,4 +37,4 @@ jobs:
         with:
           commit_message: "Build: Updated dist folder [CI]"
           file_pattern: dist/**  # Only commit changes in the dist folder
-          branch: main  # Target branch to push updates
+          branch: master  # Target branch to push updates
