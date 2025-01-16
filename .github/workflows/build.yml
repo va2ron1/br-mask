@@ -1,12 +1,9 @@
-name: CI - Test and Build
+name: Build and Deploy
 
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - master  # Trigger when pushing to the main branch
 
 jobs:
   build:
@@ -21,12 +18,20 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # Replace with the Node.js version you use
+          node-version: 18  # Replace with your Node.js version
 
       # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Test and Build
-      - name: Build Angular Package
-        run: npm run build
+      # Step 4: Build the Angular package
+      - name: Build package with ng-packagr
+        run: npx ng-packagr -p ng-package.json
+
+      # Step 5: Push built files to the `build` branch
+      - name: Deploy dist folder
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: build
