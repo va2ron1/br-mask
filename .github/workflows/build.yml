@@ -1,0 +1,38 @@
+name: Build and Commit Dist
+
+on:
+  push:
+    branches:
+      - main  # Replace with your target branch
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # Use a version compatible with your project
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the Angular package
+      - name: Build package with ng-packagr
+        run: npx ng-packagr -p ng-package.json
+
+      # Step 5: Commit and push built files
+      - name: Commit and push dist folder
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Build: Updated dist folder [CI]"
+          file_pattern: dist/**  # Only commit changes in the dist folder
+          branch: main  # Target branch to push updates
